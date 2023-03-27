@@ -88,7 +88,7 @@ function every60thTick()
 	end
 end
 
-function every13thTick()
+function every17thTick()
 	if global["gameStarted"] and global["aiRootActive"] == false then	
 		aiRootStep()
 	end
@@ -123,7 +123,6 @@ function on300thtick(event)
 				goto continue
 			end
 			if next(enemyEntities) then
-				game.print("enemyEntities is populated - staying at the same place")
 				group.set_autonomous()
 				move = false
 			end

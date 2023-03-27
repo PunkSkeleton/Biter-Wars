@@ -91,11 +91,6 @@ function onGuiCheckedStateChanged(event)
 		local element = event.element
 		if element.name == "biter-wars-ready" then
 			local setReady = false
-			if element.state then
-				game.print("ready = true")
-			else
-				game.print("ready = false")
-			end
 			if element.state == true then
 				setReady = true
 			end

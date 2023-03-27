@@ -71,11 +71,6 @@ end
 function teamReady(player, setReady)
 	if player.force.name == "north" then
 		global["northSideReady"] = setReady
-		if setReady then
-			game.print("northSideReady = true")
-		else
-			game.print("northSideReady = false")
-		end
 		for i, player in pairs(game.connected_players) do
 			if player.force.name == "north" then
 				player.gui.top["ready"]["buttonflow2"]["biter-wars-ready"].state = setReady
@@ -88,16 +83,6 @@ function teamReady(player, setReady)
 				player.gui.top["ready"]["buttonflow2"]["biter-wars-ready"].state = setReady
 			end
 		end
-	end
-	if global["northSideReady"] then
-		game.print("northSideReady = true")
-	else
-		game.print("northSideReady = false")
-	end
-	if global["southSideReady"] then
-		game.print("southSideReady = true")
-	else
-		game.print("southSideReady = false")
 	end
 	if global["southSideReady"] and global["northSideReady"] then
 		startingSequence()
