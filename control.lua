@@ -1,6 +1,6 @@
 require "utils"
 require "pregame"
-require "mapgen"
+require "mapGen"
 require "gui"
 require "resources"
 require "ai.ai"
