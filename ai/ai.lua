@@ -56,6 +56,7 @@ function advanceBiters(biterGroup, forceName, startPosX, startPosY)
 	local jitterX = math.random(-50,50)
 	local jitterY = math.random(-50,50)
 	position = {x = targetPositionX + jitterX, y = targetPositionY + jitterY}
+	currentSurface = game.surfaces[global["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 128, 1)
 	game.write_file("biter-wars.log", "Added command to move: " .. currentPosX .. ":" .. currentPosY .. " calculated distance: " .. distanceX .. ":" .. distanceY .. "\n", true)	
     biterGroup.set_command({
@@ -115,6 +116,7 @@ function formBiterGroup(force)
 	local middleX = area["middleX"]
 	local middleY = area["middleY"] + offset
 	local position = {x = middleX, y = middleY}
+	currentSurface = game.surfaces[global["surfaceName"]]
 	pos = currentSurface.find_non_colliding_position("assembling-machine-1", position, 512, 1)
 	local biterGroup = currentSurface.create_unit_group({position = pos, force = force})
 	if force == "north" then

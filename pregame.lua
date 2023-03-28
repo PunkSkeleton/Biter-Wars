@@ -7,17 +7,18 @@ function pregame()
 end
 
 function initPlayer(player)
-	-- if force is player then the player joins for the first time so has not been initialized
-	if player.force.name == "player" then
+	-- if player is not on current surface or is from the old game then the player joins for the first time so has not been initialized 
+	currentSurface = game.surfaces[global["surfaceName"]]
+	if player.surface.name ~= currentSurface.name then
 		pos = game.surfaces[global["surfaceName"]].find_non_colliding_position("character", {0, 0}, 5, 0.1)
 		if pos == nil then
 			pos = {0,0}
 		end
 		player.teleport(pos, global["surfaceName"])
 		player.force="spectators"
+		createGui(player)
+		player.gui.top["biter-wars"].visible = true
 	end
-	createGui(player)
-	player.gui.top["biter-wars"].visible = true
 end
 
 function initHost()
